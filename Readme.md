@@ -1,37 +1,54 @@
-# Tri-Dev Discord bot
+# Tri-Dev Discord Bot
 
-This is a general utility bot created to help manage/maintain and entertain users of the Tr-Dev discord.
+This bot is a general utility tool designed to assist in managing, maintaining, and entertaining users on the Tri-Dev Discord server.
 
-## Pre-requisites
+## Prerequisites
 
-#### Docker
+### Docker
 
-This project uses docker to create a local DB and it is recomended during development to keep in that tradition to make sure that any problems you may run into have already been addressed.
+Docker is used to create a local database for development purposes. It is recommended to continue using Docker throughout the development process to ensure consistency and troubleshoot common issues that may have been encountered and resolved before.
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Download Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-#### Python 3.10.12
+### Python 3.10.12
 
-We use Python 3.10.12 in this project. Make sure to install it. Installing a python version manager is a great option to keep multiple versions of python available to you.
+This project requires Python 3.10.12. Installing a Python version manager like pyenv can help manage multiple Python versions on your machine.
 
-[Python Version Manager](https://github.com/pyenv/pyenv)
+- [Python Version Manager (pyenv)](https://github.com/pyenv/pyenv)
 
-### A Test Discord Server
+### Test Discord Server
 
-You want to be sure that you have a test in. Discord makes it's really easy to create a new server. This is where you can test your bot and changes before you make a merge request.
+Before deploying or merging changes, it’s essential to test the bot on a test Discord server. Creating a new server for testing is straightforward.
 
-[Discord Server Creation](https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server)
+- [How to Create a Discord Server](https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server)
 
-### Discord Developer account & Bot token
+### Discord Developer Account & Bot Token
 
-To actually interface with your bot you'll need a deeloper account & access token for your bot. Both are easy to obtain.
+To integrate the bot into Discord, you'll need a Discord Developer account and a bot token. Both are easy to obtain:
 
-[Create Dev account](https://discord.com/developers/docs/intro)
+- [Create Developer Account](https://discord.com/developers/docs/intro)
+- [Get Access Token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
 
-[Get Access Token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
+### Creating Proper Intents
 
-### !Important freeze new dependncie isntalls
+You need to let Discord know what intents you are using. We currently only need the message_contents intent
 
+- [Change Intent](https://discordpy.readthedocs.io/en/latest/intents.html)
+
+### Freezing Dependencies (Important)
+
+To ensure the project dependencies are consistent, freeze any new dependency installations into the `requirements.txt` file.
+
+```bash
 pip3 freeze > requirements.txt
+```
 
-## Run Locally
+## Running the Bot Locally
+
+Use the Makefile to simplify setup and execution. Follow these steps to get started:
+
+```bash
+make initial-setup
+make db-migrate
+make run
+```
