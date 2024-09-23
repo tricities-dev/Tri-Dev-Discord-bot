@@ -53,7 +53,7 @@ def main():
     token = env_details()
     print(token)
     intents = discord.Intents.default()
-    #intents.message_content = True
+    intents.message_content = True
     postgress_db = db_handle.DbHandle()
     client = MyClient(intents=intents)
     client.run(token)
