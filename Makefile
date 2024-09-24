@@ -1,4 +1,4 @@
-intial-setup:
+initial-setup:
 	python3 -m venv venv
 	cp .env.example .env
 	docker compose up -d
